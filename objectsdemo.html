@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function Employee(id, name, city) {
+            this.id = id;
+            this.name = name;
+            this.city = city;
+            this.displayEmployee = function () { console.log(this.id + " , " + this.name, " , " + this.city) };
+        }
+
+        e1 = new Employee(1, "naushad", "mumbai");
+        e2 = new Employee(2, "Akhtar", "pune");
+        employees = [e1, e2]
+
+
+
+        function displayEmployee() {
+            document.getElementById("employeedata").replaceChildren()
+            for (index in employees) {
+                employee = employees[index];
+                tr = document.createElement("tr")
+                td1 = document.createElement("td");
+                useridtn = document.createTextNode(employee.id)
+                td1.appendChild(useridtn);
+                tr.appendChild(td1);
+                td2 = document.createElement("td");
+                nametn = document.createTextNode(employee.name)
+                td2.appendChild(nametn);
+                tr.appendChild(td2);
+                td3 = document.createElement("td");
+                document.getElementById("employeedata").appendChild(tr);
+            }
+        }
+        function saveEmployee() {
+
+            var userid = document.getElementById("userid").value;
+            var uname = document.getElementById("uname").value;
+            var city = document.getElementById("city").value;
+            employees.push(new Employee(userid, uname, city))
+        }
+        function addEmployee() {
+            document.getElementById("addemployee").style.visibility = "visible"
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Employee Record</h1>
+    <button onclick="addEmployee()">Add Employee</button>
+    <br>
+    <div id="addemployee" style="visibility: hidden">
+        <h1>Add Employee</h1>
+        <label>User ID : </label> <input type="number" id="userid"> <br>
+        <label>Name : </label> <input type="text" id="uname"> <br>
+        <label>City : </label> <input type="text" id="city"> <br>
+        <button onclick="saveEmployee()">Save Employee</button>
+    </div>
+    <br>
+    <button onclick="displayEmployee()">Display Employee</button>
+    <table id="employeedata"></table>
+</body>
+
+</html>

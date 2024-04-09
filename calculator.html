@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red
+        }
+    </style>
+    <script>
+        var count1 = 0;
+        var count2 = 0;
+        function displayDataOfP(obj) {
+            // count++;
+            //  p1Obj =  document.getElementById("p2");
+            if (obj.id == "p1") {
+                count1++;
+                obj.innerHTML = "MAJA AAYAA";
+                if (count1 > 5) {
+                    obj.innerHTML = "bahut mazaa aaya";
+                    obj.className = "red"
+                    obj.style.textShadow = "2px 2px black";
+                    obj.style.textTransform = "capitalize"
+                }
+            }
+            if (obj.id == "p2") {
+                count2++;
+                obj.innerHTML = "MAJA AAYAA";
+                if (count2 > 5) {
+                    obj.innerHTML = "BAHUT MAJA AAYAA";
+                    obj.className = "red"
+                }
+            }
+        }
+        function displayDT() {
+            date = new Date();
+            document.getElementById("date").innerHTML = date.toLocaleDateString();
+            document.getElementById("time").innerHTML = date.toLocaleTimeString();
+            // setTimeout("displayDT()", 1000);
+            document.getElementById("ms").innerHTML = date.getTime();
+        }
+        setInterval("displayDT()", 1);
+      //   setTimeout("displayDT()", 10000);
+    </script>
+</head>
+
+<body>
+    <h1>Date : <span id="date"></span> </h1>
+    <h1>Time : <span id="time"></span> </h1>
+    <h1>Miliseconds : <span id="ms"></span> </h1>
+    <button onclick="displayDT()">Display Date And Time</button>
+    <p onmouseover="displayDataOfP(this)" id="p1">This is P1</p>
+    <p onmouseover="displayDataOfP(this)" id="p2">This is P2</p>
+</body>
+
+</html>

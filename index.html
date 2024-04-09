@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1 onmouseover="hm2('center',this)" onmouseout="hm2('left',this)" id="h1a">Home Page , Naushad Akhtar from Mumbai 1</h1>
+    <h1 onmouseover="hm2('center',this)" onmouseout="hm2('left',this)" id="h1b">Home Page , Naushad Akhtar from Mumbai 2</h1>
+    <p>This is Para</p>
+    <input type="text">
+    <script>
+        let url = document.URL;
+        console.log("NAUSHAD :   URL IS  -----  >  " + url);
+
+        function hm1(pos) {
+            var h1elements = window.document.getElementsByTagName("h1");
+            //  console.log(h1elements);
+            //   alert("ok")
+
+            h1elements[0].align =pos
+            console.log(h1elements[0].textContent);
+        }
+        function hm2(pos,obj) {
+          //  var h1element = window.document.getElementById("h1b")
+            //  console.log(h1elements);
+            //   alert("ok")
+
+            obj.align =pos
+            console.log(obj.textContent);
+        }
+    </script>
+</body>
+
+</html>
